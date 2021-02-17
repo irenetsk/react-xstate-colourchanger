@@ -6,8 +6,10 @@ interface SDSContext {
     recResult: string;
     nluData: any;
     ttsAgenda: string;
-    person: string,
-
+    person: string;
+    day: string;
+    time: string;
+    query: string;
 }
 
 type SDSEvent =
