@@ -4,7 +4,8 @@ import * as ReactDOM from "react-dom";
 import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
-import { dmMachine } from "./dmColourChanger";
+// import { dmMachine } from "./dmSmartHome";
+import { dmMachine } from "./dmAppointmentPlus";
 
 
 inspect({
@@ -35,6 +36,7 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                     }
                 },
                 recognising: {
+		            initial: 'progress',
                     entry: 'recStart',
                     exit: 'recStop',
                     on: {
@@ -43,9 +45,12 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                                 assign((_context, event) => { return { recResult: event.value } })],
                             target: '.match'
                         },
-                        RECOGNISED: 'idle'
+                        RECOGNISED: 'idle',
+                        MAXSPEECH: 'idle',
                     },
                     states: {
+		    	        progress: {
+			            },	    					
                         match: {
                             entry: send('RECOGNISED'),
                         },
@@ -164,7 +169,7 @@ function App() {
 /* RASA API
  *  */
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const rasaurl = 'https://rasa-nlu-api-00.herokuapp.com/model/parse'
+const rasaurl = 'https://irenetsk.herokuapp.com/model/parse'
 const nluRequest = (text: string) =>
     fetch(new Request(proxyurl + rasaurl, {
         method: 'POST',
