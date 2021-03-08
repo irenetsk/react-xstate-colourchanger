@@ -360,4 +360,10 @@ const nluRequest = (text: string) =>
         headers: { 'Origin': 'http://localhost:3000/react-xstate-colourchanger' }, // only required with proxy
         body: `{"text": "${text}"}`
     }))
+<<<<<<< HEAD
         .then(data => data.json());
+=======
+        .then(data => data.json());
+
+
+>>>>>>> refs/remotes/origin/master

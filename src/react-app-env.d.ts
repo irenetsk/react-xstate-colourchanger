@@ -10,10 +10,13 @@ interface SDSContext {
     day: string;
     time: string;
     query: string;
+<<<<<<< HEAD
     option: string;
     action: string;
     object: string;
     counter: number;
+=======
+>>>>>>> refs/remotes/origin/master
 }
 
 type SDSEvent =
