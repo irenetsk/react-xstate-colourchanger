@@ -4,13 +4,8 @@ import * as ReactDOM from "react-dom";
 import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
-<<<<<<< HEAD
 // import { dmMachine } from "./dmSmartHome";
 import { dmMachine } from "./dmAppointmentPlus";
-=======
-import { dmMachine } from "./dmAppointment";
->>>>>>> refs/remotes/origin/master
-
 
 inspect({
     url: "https://statecharts.io/inspect",
@@ -40,11 +35,7 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                     }
                 },
                 recognising: {
-<<<<<<< HEAD
 		            initial: 'progress',
-=======
-		    initial: 'progress',
->>>>>>> refs/remotes/origin/master
                     entry: 'recStart',
                     exit: 'recStop',
                     on: {
@@ -57,13 +48,8 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                         MAXSPEECH: 'idle',
                     },
                     states: {
-<<<<<<< HEAD
 		    	        progress: {
 			            },	    					
-=======
-		    	progress: {
-			},	    					
->>>>>>> refs/remotes/origin/master
                         match: {
                             entry: send('RECOGNISED'),
                         },
