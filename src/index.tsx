@@ -5,7 +5,7 @@ import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
 // import { dmMachine } from "./dmSmartHome";
-import { dmMachine } from "./dmAppointmentPlus";
+import { dmMachine } from "./dmAppointmentPlus2";
 
 inspect({
     url: "https://statecharts.io/inspect",

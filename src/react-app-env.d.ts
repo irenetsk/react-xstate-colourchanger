@@ -6,6 +6,7 @@ interface SDSContext {
     recResult: string;
     nluData: any;
     ttsAgenda: string;
+    snippet: string
     person: string;
     day: string;
     time: string;
@@ -14,6 +15,7 @@ interface SDSContext {
     action: string;
     object: string;
     counter: number;
+}
 
 type SDSEvent =
     | { type: 'CLICK' }

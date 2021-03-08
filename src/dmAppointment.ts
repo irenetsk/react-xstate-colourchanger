@@ -68,7 +68,6 @@ function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> 
 
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-   
     initial: 'init',
     states: {
         init: {
@@ -96,8 +95,6 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                     target: 'menu',
                     actions: [assign((context, event) => { return  {option: event.data.intent.name} }),
                     (context: SDSContext, event: any) => console.log(event.data)]
-                    //actions: assign({ intent: (context: SDSContext, event: any) =>{ return event.data }})
-
                 },
                 onError: {
                     target: 'welcome',
@@ -121,11 +118,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                         type: "SPEAK",
                         value: `OK. I understand.`
                     })),
-        },
-     /*            nomatch: {
-                    entry: say("Sorry, I don't understand"),
-                    on: { ENDSPEECH: "prompt" }
-        } */ 
+                },
             }       
         },
 
@@ -360,10 +353,4 @@ const nluRequest = (text: string) =>
         headers: { 'Origin': 'http://localhost:3000/react-xstate-colourchanger' }, // only required with proxy
         body: `{"text": "${text}"}`
     }))
-<<<<<<< HEAD
         .then(data => data.json());
-=======
-        .then(data => data.json());
-
-
->>>>>>> refs/remotes/origin/master
